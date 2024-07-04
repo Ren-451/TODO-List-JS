@@ -47,3 +47,8 @@ checkBox.addEventListener('change', function() {
         taskText.style.textDecoration = 'none';
     }
 });
+
+// delete
+deleteButton.addEventListener('click', function() {
+    todoList.replaceChild(listItem);
+});
