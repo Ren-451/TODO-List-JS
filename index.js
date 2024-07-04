@@ -20,6 +20,10 @@ todoForm.addEventListener('submit', function(event) {
 // add task
 
 function addTask(task) {
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    listItem.appendChild(editButton);
+
     const listItem = document.createElement('li');
     listItem.textContent = task;
     const taskText = document.createElement('span');
