@@ -14,6 +14,7 @@ todoForm.addEventListener('submit', function(event) {
     }
 
     todoInput.value = '';
+    addTask(newTask);
 });
 
 // add task
@@ -21,6 +22,17 @@ todoForm.addEventListener('submit', function(event) {
 function addTask(task) {
     const listItem = document.createElement('li');
     listItem.textContent = task;
+    const taskText = document.createElement('span');
+    taskText.textContent = task;
+    listItem.appendChild(taskText);
+
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    listItem.appendChild(checkBox);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    listItem.appendChild(deleteButton);
 
     todoList.appendChild(listItem);
 }
