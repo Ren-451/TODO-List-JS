@@ -36,3 +36,14 @@ function addTask(task) {
 
     todoList.appendChild(listItem);
 }
+
+// task completion 
+
+checkBox.addEventListener('change', function() {
+    if (this.checked) {
+        taskText.style.textDecoration = 'line-through';
+    }
+    else {
+        taskText.style.textDecoration = 'none';
+    }
+});
