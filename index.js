@@ -78,3 +78,24 @@ editButton.addEventListener('click', function() {
         editButton.textContent = 'Save';
     }
 });
+
+// save tasks to local
+
+function saveTasksToLocalStorage(){
+    const tasks = [];
+    document.querySelectorAll('#todo-list li').forEach(task => {
+        const taskText = task.querySelector('span').textContent;
+        const isCompleted = task.classList.contains('completed');
+        tasks.push({ text: taskText, completed: isCompleted});
+    });
+    localStorage.setItem('tasks', JSON,stringify(tasks));
+}
+
+// load task from local
+
+document.addEventListener('DOMContentLoaded', function() {
+    const saveTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    saveTasks.forEach(task => {
+        addTask(task.text);
+    });
+});
