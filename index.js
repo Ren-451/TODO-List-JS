@@ -56,3 +56,25 @@ checkBox.addEventListener('change', function() {
 deleteButton.addEventListener('click', function() {
     todoList.replaceChild(listItem);
 });
+
+// edit
+
+editButton.addEventListener('click', function() {
+    const isEditing = listItem.classList.contains('editing');
+
+    if (isEditing) {
+        taskText.textContent = this.previousSibling.value;
+        listItem.classList.remove('editing');
+        editButton.textContent = 'Edit';
+    }
+
+    else {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = taskText.textContent;
+        listItem.insertBefore(input, taskText);
+        listItem.removeChild(taskText);
+        listItem.classList.add('editing');
+        editButton.textContent = 'Save';
+    }
+});
